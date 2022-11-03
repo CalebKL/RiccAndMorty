@@ -1,4 +1,4 @@
-package com.example.riccandmorty.ui.theme
+package com.example.riccandmorty.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

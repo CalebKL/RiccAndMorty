@@ -1,4 +1,4 @@
-package com.example.riccandmorty.ui.theme
+package com.example.riccandmorty.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
