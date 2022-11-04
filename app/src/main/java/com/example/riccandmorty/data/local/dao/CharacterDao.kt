@@ -9,7 +9,6 @@ import com.example.riccandmorty.domain.models.Character
 
 @Dao
 interface CharacterDao {
-
     @Query("SELECT * FROM CHARACTER_TABLE ORDER BY id ASC")
     suspend fun getCharacters(): PagingSource<Int, Character>
 
