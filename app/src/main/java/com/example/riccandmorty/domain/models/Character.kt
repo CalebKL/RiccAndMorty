@@ -1,8 +1,11 @@
 package com.example.riccandmorty.domain.models
 
 
+import androidx.room.Entity
+import com.example.riccandmorty.util.Constants.CHARACTER_TABLE
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = CHARACTER_TABLE)
 data class Character(
     @SerializedName("created")
     val created: String,
