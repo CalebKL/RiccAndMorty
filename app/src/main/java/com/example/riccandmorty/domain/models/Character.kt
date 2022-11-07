@@ -2,8 +2,10 @@ package com.example.riccandmorty.domain.models
 
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.riccandmorty.util.Constants.CHARACTER_TABLE
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
 @Entity(tableName = CHARACTER_TABLE)
 data class Character(
@@ -14,6 +16,7 @@ data class Character(
     @SerializedName("gender")
     val gender: String,
     @SerializedName("id")
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
     @SerializedName("image")
     val image: String,

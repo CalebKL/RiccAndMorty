@@ -1,9 +1,8 @@
 package com.example.riccandmorty.data.local
 
 import androidx.room.TypeConverter
-import java.lang.StringBuilder
 
-class DatabaseConverter {
+class ListConverters {
     private val separator = ","
 
     @TypeConverter
