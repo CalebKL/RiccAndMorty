@@ -10,6 +10,5 @@ data class CharacterResponses(
     val info: Info,
     @SerializedName("results")
     val results: List<Character>,
-    val lastUpdated: Long? = null
 
 )
