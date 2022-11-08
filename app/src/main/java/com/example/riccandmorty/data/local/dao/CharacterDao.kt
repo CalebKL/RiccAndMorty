@@ -1,6 +1,5 @@
 package com.example.riccandmorty.data.local.dao
 
-import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -10,7 +9,7 @@ import com.example.riccandmorty.domain.models.Character
 @Dao
 interface CharacterDao {
     @Query("SELECT * FROM CHARACTER_TABLE ORDER BY id ASC")
-    fun getCharacters(): PagingSource<Int, Character>
+    fun getCharacters(): List<Character>
 
     @Query("SELECT * FROM CHARACTER_TABLE  WHERE id =:id")
     fun getSelectedCharacter(id: Int):Character

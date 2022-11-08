@@ -14,7 +14,7 @@ import com.example.riccandmorty.domain.models.Location
     exportSchema = false
 )
 @TypeConverters(LocationConverter::class, ListConverters::class, OriginConverter::class)
-abstract class CharacterDatabase: RoomDatabase(){
+abstract class MortyDatabase: RoomDatabase(){
     abstract fun characterDao():CharacterDao
     abstract fun locationDao():LocationDao
 }
