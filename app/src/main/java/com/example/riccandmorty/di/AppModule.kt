@@ -6,8 +6,12 @@ import com.example.riccandmorty.data.local.MortyDatabase
 import com.example.riccandmorty.data.remote.MortyApi
 import com.example.riccandmorty.data.repository.character.local.CharacterLocalDataSource
 import com.example.riccandmorty.data.repository.character.local.CharacterLocalImpl
+import com.example.riccandmorty.data.repository.character.remote.CharacterRemoteDataSource
+import com.example.riccandmorty.data.repository.character.remote.CharacterRemoteImp
 import com.example.riccandmorty.data.repository.location.local.LocationLocalDataSource
 import com.example.riccandmorty.data.repository.location.local.LocationLocalImpl
+import com.example.riccandmorty.data.repository.location.remote.LocationRemoteDataSource
+import com.example.riccandmorty.data.repository.location.remote.LocationRemoteImp
 import com.example.riccandmorty.domain.repository.CharacterRepository
 import com.example.riccandmorty.util.Constants.BASE_URL
 import com.example.riccandmorty.util.Constants.MORTY_DATABASE
@@ -70,6 +74,18 @@ object AppModule {
     @Singleton
     fun provideLocationLocalDataSource(database:MortyDatabase ): LocationLocalDataSource{
         return LocationLocalImpl(database = database )
+    }
+
+    @Provides
+    @Singleton
+    fun provideCharacterRemoteDataSource(api: MortyApi): CharacterRemoteDataSource{
+        return CharacterRemoteImp(api = api )
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocationRemoteDataSource(api: MortyApi): LocationRemoteDataSource{
+        return LocationRemoteImp(api = api )
     }
 }
 
