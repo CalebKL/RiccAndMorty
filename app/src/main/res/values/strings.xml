@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RiccAndMorty</string>
+    <string name="image_background">image background</string>
 </resources>

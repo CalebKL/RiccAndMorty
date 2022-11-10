@@ -4,26 +4,19 @@ import android.content.Context
 import androidx.room.Room
 import com.example.riccandmorty.data.local.MortyDatabase
 import com.example.riccandmorty.data.remote.MortyApi
-import com.example.riccandmorty.data.repository.character.local.CharacterLocalDataSource
-import com.example.riccandmorty.data.repository.character.local.CharacterLocalImpl
-import com.example.riccandmorty.data.repository.character.remote.CharacterRemoteDataSource
-import com.example.riccandmorty.data.repository.character.remote.CharacterRemoteImp
-import com.example.riccandmorty.data.repository.location.local.LocationLocalDataSource
-import com.example.riccandmorty.data.repository.location.local.LocationLocalImpl
-import com.example.riccandmorty.data.repository.location.remote.LocationRemoteDataSource
-import com.example.riccandmorty.data.repository.location.remote.LocationRemoteImp
+import com.example.riccandmorty.data.repository.CharacterRepositoryImp
+import com.example.riccandmorty.data.repository.LocationRepositoryImpl
+import com.example.riccandmorty.data.repository.LocationRepositoryImpl_Factory
 import com.example.riccandmorty.domain.repository.CharacterRepository
+import com.example.riccandmorty.domain.repository.LocationRepository
+import com.example.riccandmorty.domain.use_case.GetAllCharactersUseCase
 import com.example.riccandmorty.util.Constants.BASE_URL
 import com.example.riccandmorty.util.Constants.MORTY_DATABASE
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -66,26 +59,20 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCharacterLocalDataSource(database:MortyDatabase ): CharacterLocalDataSource{
-        return CharacterLocalImpl(database = database )
+    fun provideCharacterRepository(database:MortyDatabase,api: MortyApi): CharacterRepository{
+        return CharacterRepositoryImp(database = database, api = api)
     }
 
     @Provides
     @Singleton
-    fun provideLocationLocalDataSource(database:MortyDatabase ): LocationLocalDataSource{
-        return LocationLocalImpl(database = database )
+    fun provideLocationRepository(database:MortyDatabase, api: MortyApi): LocationRepository{
+        return LocationRepositoryImpl(database = database, api = api)
     }
 
     @Provides
     @Singleton
-    fun provideCharacterRemoteDataSource(api: MortyApi): CharacterRemoteDataSource{
-        return CharacterRemoteImp(api = api )
-    }
-
-    @Provides
-    @Singleton
-    fun provideLocationRemoteDataSource(api: MortyApi): LocationRemoteDataSource{
-        return LocationRemoteImp(api = api )
+    fun provideGetCharactersUseCase(repository: CharacterRepository): GetAllCharactersUseCase{
+        return GetAllCharactersUseCase(repository = repository)
     }
 }
 
