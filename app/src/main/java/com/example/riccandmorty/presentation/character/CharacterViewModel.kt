@@ -23,7 +23,7 @@ class CharacterViewModel @Inject constructor(
 ):ViewModel() {
 
     private val _characterListState: MutableState<CharacterState> = mutableStateOf(CharacterState())
-    private val characterListState: State<CharacterState> = _characterListState
+    val characterListState: State<CharacterState> = _characterListState
 
     init {
         getCharacters()

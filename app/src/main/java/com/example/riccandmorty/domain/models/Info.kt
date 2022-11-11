@@ -6,9 +6,11 @@ data class Info(
     @SerializedName("count")
     val count: Int,
     @SerializedName("next")
-    val next: String,
+    val next: Int? = null,
     @SerializedName("pages")
     val pages: Int,
     @SerializedName("prev")
-    val prev: Any
+    val prev: Int? = null,
+    @SerializedName("lastUpdated")
+    val lastUpdated: Long,
 )

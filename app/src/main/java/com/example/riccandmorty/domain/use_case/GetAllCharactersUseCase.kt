@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 class GetAllCharactersUseCase(
     val repository: CharacterRepository
 ){
-    suspend operator fun invoke(): Flow<Resource<List<CharacterResponses>>> {
+    suspend operator fun invoke(): Flow<List<CharacterResponses>> {
         return repository.getCharacters()
     }
 }

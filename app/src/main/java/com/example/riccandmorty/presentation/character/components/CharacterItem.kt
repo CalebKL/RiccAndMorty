@@ -18,13 +18,13 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.riccandmorty.R
+import com.example.riccandmorty.domain.models.Character
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun CharacterItem(
+    character:Character,
     modifier: Modifier,
-    imageUrl: String,
-    textTitle: String
 ){
     Box(
         modifier = modifier,
@@ -36,7 +36,7 @@ fun CharacterItem(
         ){
             Image(
                 painter = rememberImagePainter(
-                    data = imageUrl,
+                    data = character.image,
                     builder = {
                         placeholder(R.drawable.ic_placeholder)
                         crossfade(true)
@@ -61,20 +61,9 @@ fun CharacterItem(
                     .fillMaxSize()
                     .padding(16.dp)
             ){
-                Text(text = textTitle)
+                Text(text = character.name)
             }
         }
     }
 }
 
-@Preview
-@Composable
-fun CharacterItemPreview() {
-    CharacterItem(
-        modifier = Modifier
-        .width(180.dp)
-        .height(200.dp),
-        imageUrl = "",
-        textTitle = "New Item"
-    )
-}

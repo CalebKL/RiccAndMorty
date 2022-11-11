@@ -1,4 +1,4 @@
-package com.example.riccandmorty.data.local
+package com.example.riccandmorty.data.local.dao
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter

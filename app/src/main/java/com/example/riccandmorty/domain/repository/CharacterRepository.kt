@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterRepository {
 
-    suspend fun getCharacters(): Flow<Resource<List<CharacterResponses>>>
+    suspend fun getCharacters(): Flow<List<CharacterResponses>>
 
     suspend fun getSelectedCharacter(id:Int):Character
 }
