@@ -2,6 +2,7 @@ package com.example.riccandmorty.data.local
 
 import androidx.room.TypeConverter
 
+
 class ListConverters {
     private val separator = ","
 

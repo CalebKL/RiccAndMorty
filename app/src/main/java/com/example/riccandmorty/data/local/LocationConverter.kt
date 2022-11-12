@@ -1,18 +1,15 @@
-package com.example.riccandmorty.data.local.dao
+package com.example.riccandmorty.data.local
 
-import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.example.riccandmorty.domain.models.Location
-import com.example.riccandmorty.util.JsonParser
+import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-@ProvidedTypeConverter
-class LocationConverter(
-    private val jsonParser: JsonParser
-) {
+object LocationConverter{
+    private val gson = Gson()
     @TypeConverter
     fun fromLocationJson(location: Location):String{
-        return jsonParser.toJson(
+        return gson.toJson(
             location,
             object : TypeToken<Location>(){}.type
         )
@@ -20,7 +17,7 @@ class LocationConverter(
 
     @TypeConverter
     fun toLocationJson(json:String):Location{
-        return jsonParser.fromJson(
+        return gson.fromJson(
             json,
             object : TypeToken<Location>(){}.type
         )

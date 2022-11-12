@@ -64,12 +64,12 @@ class CharacterRemoteMediator @Inject constructor(
                         characterDao.deleteAllCharacters()
                         remoteKeyDao.deleteAllRemoteKeys()
                     }
-                    val prevPage = response.info.prev
-                    val nextPage = response.info.next
+                    val prevPage = response.info.prev.toInt()
+                    val nextPage = response.info.next?.toInt()
                     val keys = response.results.map {character->
                         CharacterRemoteKeys(
                             id = character.id,
-                            prevPage = prevPage,
+                            prevPage =prevPage,
                             nextPage = nextPage,
                             lastUpdated = response.info.lastUpdated
                         )

@@ -1,11 +1,8 @@
 package com.example.riccandmorty.domain.models
 
-import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.riccandmorty.util.Constants.LOCATION_TABLE
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = LOCATION_TABLE)
 data class Location(
     @SerializedName("created")
     val created: String,

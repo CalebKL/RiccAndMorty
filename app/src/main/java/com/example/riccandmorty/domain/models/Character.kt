@@ -35,3 +35,4 @@ data class Character(
     @SerializedName("url")
     val url: String
 )
+

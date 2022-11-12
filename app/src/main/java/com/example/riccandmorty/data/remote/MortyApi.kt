@@ -8,9 +8,9 @@ import retrofit2.http.Query
 
 interface MortyApi {
 
-    @GET("character")
+    @GET("character/")
     suspend fun getCharacters(
-        @Query("page")page: Int = 1
+        @Query("page") page: Int = 0
     ): CharacterResponses
 
     @GET("location")

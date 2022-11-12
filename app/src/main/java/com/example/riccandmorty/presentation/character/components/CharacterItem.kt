@@ -23,8 +23,9 @@ import com.example.riccandmorty.domain.models.Character
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun CharacterItem(
-    character:Character,
     modifier: Modifier,
+    imageUrl:String,
+    text: String
 ){
     Box(
         modifier = modifier,
@@ -36,7 +37,7 @@ fun CharacterItem(
         ){
             Image(
                 painter = rememberImagePainter(
-                    data = character.image,
+                    data = imageUrl,
                     builder = {
                         placeholder(R.drawable.ic_placeholder)
                         crossfade(true)
@@ -61,7 +62,7 @@ fun CharacterItem(
                     .fillMaxSize()
                     .padding(16.dp)
             ){
-                Text(text = character.name)
+                Text(text = text)
             }
         }
     }
