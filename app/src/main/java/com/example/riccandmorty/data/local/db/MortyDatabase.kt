@@ -1,16 +1,18 @@
-package com.example.riccandmorty.data.local
+package com.example.riccandmorty.data.local.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.example.riccandmorty.data.local.converters.ListConverters
+import com.example.riccandmorty.data.local.converters.LocationConverter
+import com.example.riccandmorty.data.local.converters.OriginConverter
 import com.example.riccandmorty.data.local.dao.CharacterDao
 import com.example.riccandmorty.data.local.dao.CharacterRemoteDao
-import com.example.riccandmorty.domain.models.Character
+import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.domain.models.CharacterRemoteKeys
-import com.example.riccandmorty.domain.models.Location
 
 @Database(
-    entities = [Character::class, CharacterRemoteKeys::class],
+    entities = [CharacterDto::class, CharacterRemoteKeys::class],
     version = 1,
     exportSchema = false)
 @TypeConverters(LocationConverter::class, OriginConverter::class, ListConverters::class)

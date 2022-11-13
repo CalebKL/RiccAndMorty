@@ -1,4 +1,4 @@
-package com.example.riccandmorty.domain.models
+package com.example.riccandmorty.data.remote.models
 
 import com.google.gson.annotations.SerializedName
 

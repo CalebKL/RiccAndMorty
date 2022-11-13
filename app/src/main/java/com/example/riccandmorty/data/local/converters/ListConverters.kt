@@ -1,4 +1,4 @@
-package com.example.riccandmorty.data.local
+package com.example.riccandmorty.data.local.converters
 
 import androidx.room.TypeConverter
 

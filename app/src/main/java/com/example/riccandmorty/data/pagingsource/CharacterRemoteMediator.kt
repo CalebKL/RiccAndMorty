@@ -5,10 +5,11 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.example.riccandmorty.data.local.MortyDatabase
+import com.example.riccandmorty.data.local.db.MortyDatabase
+import com.example.riccandmorty.data.local.entity.CharacterEntity
 import com.example.riccandmorty.data.remote.MortyApi
-import com.example.riccandmorty.domain.models.Character
 import com.example.riccandmorty.domain.models.CharacterRemoteKeys
+import com.example.riccandmorty.domain.models.Character
 import java.lang.Exception
 import javax.inject.Inject
 

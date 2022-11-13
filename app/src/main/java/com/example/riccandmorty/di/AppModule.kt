@@ -2,15 +2,13 @@ package com.example.riccandmorty.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.riccandmorty.data.local.LocationConverter
-import com.example.riccandmorty.data.local.MortyDatabase
+import com.example.riccandmorty.data.local.db.MortyDatabase
 import com.example.riccandmorty.data.remote.MortyApi
 import com.example.riccandmorty.data.repository.CharacterRepositoryImp
 import com.example.riccandmorty.domain.repository.CharacterRepository
 import com.example.riccandmorty.domain.use_case.GetAllCharactersUseCase
 import com.example.riccandmorty.util.Constants.BASE_URL
 import com.example.riccandmorty.util.Constants.MORTY_DATABASE
-import com.example.riccandmorty.util.JsonParser
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,7 +56,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCharacterRepository(database:MortyDatabase,api: MortyApi): CharacterRepository{
+    fun provideCharacterRepository(database: MortyDatabase, api: MortyApi): CharacterRepository{
         return CharacterRepositoryImp(database = database, api = api)
     }
 

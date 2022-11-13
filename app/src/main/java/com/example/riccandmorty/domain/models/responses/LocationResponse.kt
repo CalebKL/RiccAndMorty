@@ -1,8 +1,8 @@
 package com.example.riccandmorty.domain.models.responses
 
 
-import com.example.riccandmorty.domain.models.Info
-import com.example.riccandmorty.domain.models.Location
+import com.example.riccandmorty.data.remote.models.Info
+import com.example.riccandmorty.data.remote.models.Location
 import com.google.gson.annotations.SerializedName
 
 data class LocationResponse(

@@ -1,7 +1,7 @@
-package com.example.riccandmorty.data.local
+package com.example.riccandmorty.data.local.converters
 
 import androidx.room.TypeConverter
-import com.example.riccandmorty.domain.models.Origin
+import com.example.riccandmorty.data.remote.models.Origin
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
