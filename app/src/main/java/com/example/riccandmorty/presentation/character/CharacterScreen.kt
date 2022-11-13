@@ -24,7 +24,7 @@ fun CharacterScreen(
 
     val state = viewModel.characterListState.value
     val characters = state.characters.collectAsLazyPagingItems()
-    Log.d("Character",characters.loadState.toString())
+    Timber.d("Character",characters.loadState.toString())
 
     LazyColumn(){
         items(characters){character->

@@ -10,7 +10,7 @@ data class Info(
     @SerializedName("pages")
     val pages: Int,
     @SerializedName("prev")
-    val prev: String ,
+    val prev: String?,
     @SerializedName("lastUpdated")
     val lastUpdated: Long?,
 )

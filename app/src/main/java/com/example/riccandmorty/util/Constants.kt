@@ -7,5 +7,5 @@ object Constants {
     const val BASE_URL = "https://rickandmortyapi.com/api/"
     const val MORTY_DATABASE = "morty_database"
     const val ITEM_PER_PAGE =3
-
+    const val STARTING_PAGE = 0
 }

@@ -64,8 +64,8 @@ class CharacterRemoteMediator @Inject constructor(
                         characterDao.deleteAllCharacters()
                         remoteKeyDao.deleteAllRemoteKeys()
                     }
-                    val prevPage = response.info.prev.toInt()
-                    val nextPage = response.info.next?.toInt()
+                    val prevPage = response.info.prev?.lastIndex
+                    val nextPage = response.info.next?.lastIndex
                     val keys = response.results.map {character->
                         CharacterRemoteKeys(
                             id = character.id,
@@ -78,7 +78,7 @@ class CharacterRemoteMediator @Inject constructor(
                     characterDao.addCharacter(character = response.results)
                 }
             }
-            MediatorResult.Success(endOfPaginationReached = response.info.next == null)
+            MediatorResult.Success(endOfPaginationReached = response.info.next?.lastIndex == null)
 
 
 
