@@ -6,8 +6,10 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.riccandmorty.data.local.db.MortyDatabase
-import com.example.riccandmorty.data.local.entity.CharacterEntity
+import com.example.riccandmorty.data.mappers.toCharacterEntity
+import com.example.riccandmorty.data.mappers.toDomain
 import com.example.riccandmorty.data.remote.MortyApi
+import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.domain.models.CharacterRemoteKeys
 import com.example.riccandmorty.domain.models.Character
 import java.lang.Exception
@@ -19,7 +21,6 @@ class CharacterRemoteMediator @Inject constructor(
     private val api:MortyApi,
     private val database: MortyDatabase
 ): RemoteMediator<Int, Character>(){
-
     private val characterDao = database.characterDao()
     private val remoteKeyDao = database.characterRemoteDao()
 
@@ -59,6 +60,7 @@ class CharacterRemoteMediator @Inject constructor(
         }
         return try {
             val response = api.getCharacters(page = page)
+            val characters = characterDao.addCharacter(response.results.map { it.toCharacterEntity() })
             if (response.results.isNotEmpty()){
                 database.withTransaction {
                     if (loadType == LoadType.REFRESH){
@@ -76,14 +78,10 @@ class CharacterRemoteMediator @Inject constructor(
                         )
                     }
                     remoteKeyDao.addAllRemoteKeys(heroRemoteKey = keys)
-                    characterDao.addCharacter(character = response.results)
+                    characterDao.addCharacter(character =  characters)
                 }
             }
             MediatorResult.Success(endOfPaginationReached = response.info.next?.lastIndex == null)
-
-
-
-
 
         }catch (e: Exception){
             MediatorResult.Error(e)

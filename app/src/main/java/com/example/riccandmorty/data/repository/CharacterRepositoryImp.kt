@@ -9,9 +9,12 @@ import com.example.riccandmorty.data.pagingsource.CharacterRemoteMediator
 import com.example.riccandmorty.data.remote.MortyApi
 import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.domain.models.Character
+import com.example.riccandmorty.domain.models.responses.CharacterResponses
 import com.example.riccandmorty.domain.repository.CharacterRepository
 import com.example.riccandmorty.util.Constants.ITEM_PER_PAGE
+import com.example.riccandmorty.util.Resource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 @OptIn(ExperimentalPagingApi::class)
@@ -21,7 +24,11 @@ class CharacterRepositoryImp @Inject constructor(
 ): CharacterRepository {
     private val dao = database.characterDao()
 
-    override fun getCharacters(): Flow<PagingData<Character>> {
+    override fun getCharacters(): Flow<Resource<PagingData<Character>>> = flow {
+        emit(Resource.Loading<PagingData<Character>>())
+        try {
+            val response =
+        }
         val pagingSourceFactory = { dao.getCharacters() }
         return Pager(
             config = PagingConfig(pageSize = ITEM_PER_PAGE),

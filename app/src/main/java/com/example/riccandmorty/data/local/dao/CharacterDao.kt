@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.riccandmorty.data.local.entity.CharacterEntity
-
+import com.example.riccandmorty.domain.models.Character
 @Dao
 interface CharacterDao {
     @Query("SELECT * FROM CHARACTER_TABLE ORDER BY id ASC")

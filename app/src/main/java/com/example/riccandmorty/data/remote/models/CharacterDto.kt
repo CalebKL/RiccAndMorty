@@ -1,7 +1,6 @@
 package com.example.riccandmorty.data.remote.models
 
 
-import com.example.riccandmorty.domain.models.Character
 import com.google.gson.annotations.SerializedName
 
 

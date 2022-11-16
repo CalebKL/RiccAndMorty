@@ -4,7 +4,7 @@ import com.example.riccandmorty.data.local.entity.CharacterEntity
 import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.domain.models.Character
 
-fun CharacterDto.toCharacterDomain(): Character {
+fun CharacterDto.toDomain(): Character {
     return Character(
         id = id,
         image = image,
@@ -15,7 +15,7 @@ fun CharacterDto.toCharacterDomain(): Character {
     )
 }
 
-fun CharacterEntity.toCharacter(): Character{
+fun CharacterEntity.toDomain(): Character{
     return Character(
         id = id,
         image = image,
@@ -26,7 +26,7 @@ fun CharacterEntity.toCharacter(): Character{
     )
 }
 
-fun Character.toCharacterEntity(): CharacterEntity{
+fun CharacterDto.toCharacterEntity(): CharacterEntity{
     return CharacterEntity(
         id = id,
         image = image,

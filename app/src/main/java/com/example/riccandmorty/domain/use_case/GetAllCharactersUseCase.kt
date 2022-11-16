@@ -4,7 +4,6 @@ import androidx.paging.PagingData
 import androidx.paging.filter
 import androidx.paging.map
 import com.example.riccandmorty.domain.models.Character
-import com.example.riccandmorty.data.remote.models.toCharacter
 import com.example.riccandmorty.domain.repository.CharacterRepository
 import com.example.riccandmorty.util.Resource
 import kotlinx.coroutines.flow.Flow
@@ -20,7 +19,9 @@ class GetAllCharactersUseCase @Inject constructor(
      operator fun invoke(): Flow<Resource<PagingData<Character>>> = flow{
          try {
              emit(Resource.Loading<PagingData<Character>>())
-             val response = repository.getCharacters().map{ it.}
+             val response = repository.getCharacters().map{
+
+             }
              emit(Resource.Success<PagingData<Character>>(response))
          }catch (e: HttpException){
              emit(Resource.Error<PagingData<Character>>(e.localizedMessage?: "An Unexpected Error Occurred"))
