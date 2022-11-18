@@ -27,17 +27,11 @@ class CharacterRepositoryImp @Inject constructor(
     override fun getCharacters(): Flow<Resource<PagingData<Character>>> = flow {
         emit(Resource.Loading<PagingData<Character>>())
         try {
-            val response =
+            val getCharacterEntity = dao.getCharacters()
+
+        } catch (e: Exception){
+
         }
-        val pagingSourceFactory = { dao.getCharacters() }
-        return Pager(
-            config = PagingConfig(pageSize = ITEM_PER_PAGE),
-            remoteMediator = CharacterRemoteMediator(
-                api = api,
-                database = database
-            ),
-            pagingSourceFactory = pagingSourceFactory
-        ).flow
     }
 
     override suspend fun getSelectedCharacter(id: Int): CharacterDto {
