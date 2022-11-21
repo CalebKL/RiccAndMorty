@@ -15,16 +15,6 @@ fun CharacterDto.toDomain(): Character {
     )
 }
 
-fun CharacterEntity.toDomain(): Character{
-    return Character(
-        id = id,
-        image = image,
-        location = location,
-        name = name,
-        origin = origin,
-        status = status
-    )
-}
 
 fun CharacterDto.toCharacterEntity(): CharacterEntity{
     return CharacterEntity(
