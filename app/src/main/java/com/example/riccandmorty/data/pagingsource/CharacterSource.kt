@@ -2,7 +2,7 @@ package com.example.riccandmorty.data.pagingsource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.riccandmorty.data.mappers.toCharacterEntity
+import com.example.riccandmorty.data.mappers.toDomain
 import com.example.riccandmorty.data.remote.MortyApi
 import com.example.riccandmorty.domain.models.Character
 import retrofit2.HttpException
@@ -21,12 +21,12 @@ class CharacterSource @Inject constructor(
             val nextPage = params.key ?: 1
             val charactersResponse = api.getCharacters(nextPage)
             val characters = charactersResponse.results.map {
-                it.
+                it.toDomain()
             }
             LoadResult.Page(
                 data = characters,
                 prevKey = if (nextPage == 1) null else nextPage - 1,
-                nextKey = if (characters.results.isEmpty()) null else characters.info.pages + 1
+                nextKey = if (charactersResponse.results.isEmpty()) null else charactersResponse.info.pages +1
             )
         } catch (e: HttpException) {
             LoadResult.Error(e)
