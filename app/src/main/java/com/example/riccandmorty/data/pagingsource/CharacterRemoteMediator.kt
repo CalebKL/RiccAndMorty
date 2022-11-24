@@ -52,7 +52,7 @@ class CharacterRemoteMediator @Inject constructor(
             }
         }
         return try {
-            val characters = api.getCharacters()
+            val characters = api.getCharacters(page = page)
             if (characters.results.isNotEmpty()){
                 database.withTransaction {
                     if (loadType == LoadType.REFRESH){

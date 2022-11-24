@@ -29,7 +29,7 @@ data class CharacterDto(
     @SerializedName("species")
     val species: String,
     @SerializedName("status")
-    val status: String,
+    var status: String,
     @SerializedName("type")
     val type: String,
     @SerializedName("url")

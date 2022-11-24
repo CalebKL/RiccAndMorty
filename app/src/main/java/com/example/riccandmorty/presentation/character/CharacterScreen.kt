@@ -24,7 +24,8 @@ fun CharacterScreen(
     val characters = state.characters.collectAsLazyPagingItems()
     Timber.tag("Character").d(characters.loadState.toString())
 
-    LazyColumn() {
+    LazyColumn(
+    ) {
         items(characters) { character ->
             CharacterItem(
                 modifier = Modifier
@@ -32,7 +33,8 @@ fun CharacterScreen(
                     .fillMaxWidth(),
                 imageUrl = character!!.image,
                 text = character.name,
-                origin = character.origin.toString()
+                origin = character.origin.name,
+                characters = character
             )
         }
     }
