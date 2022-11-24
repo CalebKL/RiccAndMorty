@@ -12,6 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
@@ -22,17 +25,18 @@ import com.example.riccandmorty.R
 fun CharacterItem(
     modifier: Modifier,
     imageUrl:String,
-    text: String
+    text: String,
+    origin: String
 ){
     Box(
         modifier = modifier,
         contentAlignment = Alignment.BottomEnd,
-
     ){
         Surface(
             shape = RoundedCornerShape(20.dp)
         ){
             Image(
+                modifier = Modifier.fillMaxSize(),
                 painter = rememberImagePainter(
                     data = imageUrl,
                     builder = {
@@ -47,7 +51,7 @@ fun CharacterItem(
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
-                .fillMaxHeight(0.4f),
+                .fillMaxHeight(0.35f),
             color = Color.Black.copy(ContentAlpha.medium),
             shape = RoundedCornerShape(
                 bottomEnd = 20.dp,
@@ -59,9 +63,36 @@ fun CharacterItem(
                     .fillMaxSize()
                     .padding(16.dp)
             ){
-                Text(text = text)
+                Text(
+                    text = text,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = Color.Black
+                )
+                Spacer(modifier = Modifier.height(6.dp))
+                Text(
+                    text = "Origin",
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    color = Color.Black
+                )
+                Spacer(modifier = Modifier.height(6.dp))
+                Text(
+                    text = origin,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    color = Color.Black
+                )
+                Spacer(modifier = Modifier.height(6.dp))
+                Text(
+                    text = "Status",
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                    color = Color.Black
+                )
+
             }
         }
     }
 }
-

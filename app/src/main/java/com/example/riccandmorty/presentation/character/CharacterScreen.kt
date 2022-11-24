@@ -1,12 +1,10 @@
 package com.example.riccandmorty.presentation.character
 
 import android.util.Log
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -24,16 +22,17 @@ fun CharacterScreen(
 
     val state = viewModel.characterListState.value
     val characters = state.characters.collectAsLazyPagingItems()
-    Timber.d("Character",characters.loadState.toString())
+    Timber.tag("Character").d(characters.loadState.toString())
 
-    LazyColumn(){
-        items(characters){character->
+    LazyColumn() {
+        items(characters) { character ->
             CharacterItem(
                 modifier = Modifier
                     .height(400.dp)
                     .fillMaxWidth(),
                 imageUrl = character!!.image,
-                text = character.name
+                text = character.name,
+                origin = character.origin.toString()
             )
         }
     }
