@@ -2,6 +2,7 @@ package com.example.riccandmorty.util
 
 object Constants {
     const val CHARACTER_TABLE = "character_table"
+    const val DETAILS_ARGUMENT_KEY = "DETAILS_ARGUMENT_KEY"
     const val LOCATION_TABLE = "location_table"
     const val CHARACTER_REMOTE_KEYS_DATABASE_TABLE = "character_remote_keys_table"
     const val BASE_URL = "https://rickandmortyapi.com/api/"
