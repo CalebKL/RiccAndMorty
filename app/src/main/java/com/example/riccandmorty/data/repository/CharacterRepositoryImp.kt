@@ -32,8 +32,13 @@ class CharacterRepositoryImp @Inject constructor(
         ).flow
     }
 
-    override suspend fun getSelectedCharacter(id: Int): CharacterDto {
-        TODO("Not yet implemented")
+    override suspend fun getSelectedCharacter(id: Int): Resource<CharacterDto> {
+        val response = try {
+            api.getSingleCharacter(id)
+        }catch (e:Exception){
+            return Resource.Error("Unknown Error")
+        }
+        return Resource.Success(response)
     }
 
 }

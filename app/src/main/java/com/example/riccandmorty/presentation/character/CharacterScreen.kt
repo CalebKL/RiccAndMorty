@@ -1,8 +1,7 @@
 package com.example.riccandmorty.presentation.character
 
 import android.util.Log
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -25,6 +24,9 @@ fun CharacterScreen(
     Timber.tag("Character").d(characters.loadState.toString())
 
     LazyColumn(
+        modifier = Modifier
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(characters) { character ->
             CharacterItem(

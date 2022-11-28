@@ -1,5 +1,6 @@
 package com.example.riccandmorty.data.remote
 
+import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.domain.models.responses.CharacterResponses
 import com.example.riccandmorty.domain.models.responses.LocationResponse
 import com.example.riccandmorty.util.Constants.STARTING_PAGE
@@ -14,7 +15,7 @@ interface MortyApi {
         @Query("page") page: Int = STARTING_PAGE
     ): CharacterResponses
 
-    @GET("location")
-    suspend fun getLocation(): Resource<LocationResponse>
+    @GET("character/{id}")
+    suspend fun getSingleCharacter(id:Int): CharacterDto
 
 }
