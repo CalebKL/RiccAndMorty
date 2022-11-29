@@ -32,58 +32,19 @@ fun DetailsContent(
     location: String,
     firstEpisode: String
     ) {
-    TopAppBar(
-        navigationIcon = {
-            BackButton {
-                onBackClicked()
-            }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                navigationIcon = {
+                    BackButton {
+                        onBackClicked()
+                    }
+                },
+                title = { Text(text = stringResource(id = R.string.details))}
+            )
         },
-        title = { Text(text = stringResource(id = R.string.details))}
+        content = {}
     )
-    Column(
-        modifier = Modifier.fillMaxSize()
-    ){
-        Image(
-            modifier = Modifier.fillMaxSize(0.5f),
-            painter = rememberImagePainter(
-                data = imageUrl,
-                builder = {
-                    placeholder(R.drawable.ic_placeholder)
-                    crossfade(true)
-                }
-            ),
-            contentScale = ContentScale.Crop,
-            contentDescription = stringResource(R.string.image_background)
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Text(
-            text =title,
-            fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h6,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            color = Color.White,
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Surface(
-            modifier= Modifier
-                .padding(16.dp),
-            shape = RoundedCornerShape(8.dp)
-        ){
-            DetailItem(name = stringResource(R.string.status), item = status)
-            Spacer(modifier = Modifier.height(8.dp))
-            DetailItem(name = stringResource(R.string.species), item = species)
-            Spacer(modifier = Modifier.height(8.dp))
-            DetailItem(name = stringResource(R.string.gender), item = gender)
-            Spacer(modifier = Modifier.height(8.dp))
-            DetailItem(name = stringResource(R.string.origin), item = origin)
-            Spacer(modifier = Modifier.height(8.dp))
-            DetailItem(name = stringResource(R.string.location), item = location)
-            Spacer(modifier = Modifier.height(8.dp))
-            DetailItem(name = stringResource(R.string.first_episode), item = firstEpisode)
-            Spacer(modifier = Modifier.height(8.dp))
-        }
-    }
 
 
 }

@@ -1,5 +1,7 @@
 package com.example.riccandmorty.presentation.details
 
+import android.icu.text.CaseMap
+import android.media.Image
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -17,6 +19,14 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun DetailsScreen(
     id:Int,
+    image: String,
+    title: String,
+    status:String,
+    species: String,
+    gender: String,
+    origin: String,
+    location:String,
+    firstEpisode: String,
     navigator: DestinationsNavigator,
     viewModel: DetailsViewModel = hiltViewModel(),
 ) {
@@ -27,14 +37,17 @@ fun DetailsScreen(
     if (detailsState.value.isLoading){
         CircularProgressIndicator()
     }else{
-        DetailsContent(onBackClicked = {},
-            imageUrl = "",
-            title = "",
-            status = "",
-            species = "",
-            gender = "",
-            origin = "",
-            location = "",
-            firstEpisode ="" )
+        DetailsContent(onBackClicked = {
+            navigator.popBackStack()
+        },
+            imageUrl = image,
+            title = title,
+            status = status,
+            species = species,
+            gender = gender,
+            origin = origin,
+            location = location,
+            firstEpisode =firstEpisode
+        )
     }
 }

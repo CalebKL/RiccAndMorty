@@ -41,7 +41,15 @@ fun CharacterScreen(
                     .fillMaxWidth()
                     .clickable {
                                navigator.navigate(DetailsScreenDestination(
-                                   id = character?.id!!
+                                   id = character?.id!!,
+                                   image = character.image,
+                                   title = character.name,
+                                   status = character.status,
+                                   species =character.species ,
+                                   gender = character.gender,
+                                   origin = character.origin.name,
+                                   location = character.location.name,
+                                   firstEpisode = character.episode.toString()
                                ))
                     },
                 imageUrl = character!!.image,
