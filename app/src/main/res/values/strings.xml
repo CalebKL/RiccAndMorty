@@ -3,4 +3,10 @@
     <string name="image_background">image background</string>
     <string name="arrow_back">ArrowBack</string>
     <string name="details">Details</string>
+    <string name="status">Status</string>
+    <string name="species">Species</string>
+    <string name="gender">Gender</string>
+    <string name="origin">Origin</string>
+    <string name="location">Location</string>
+    <string name="first_episode">First Episode</string>
 </resources>

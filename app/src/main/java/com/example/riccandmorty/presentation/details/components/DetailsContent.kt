@@ -2,6 +2,7 @@ package com.example.riccandmorty.presentation.details.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -24,7 +25,12 @@ fun DetailsContent(
     onBackClicked: ()->Unit,
     imageUrl:String,
     title: String,
-    status: String
+    status: String,
+    species: String,
+    gender: String,
+    origin: String,
+    location: String,
+    firstEpisode: String
     ) {
     TopAppBar(
         navigationIcon = {
@@ -59,17 +65,23 @@ fun DetailsContent(
             color = Color.White,
         )
         Spacer(modifier = Modifier.height(8.dp))
-        Box(
-            modifier= Modifier.padding(16.dp)
+        Surface(
+            modifier= Modifier
+                .padding(16.dp),
+            shape = RoundedCornerShape(8.dp)
         ){
-            Text(
-                text =status,
-                fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.h6,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                color = Color.White,
-            )
+            DetailItem(name = stringResource(R.string.status), item = status)
+            Spacer(modifier = Modifier.height(8.dp))
+            DetailItem(name = stringResource(R.string.species), item = species)
+            Spacer(modifier = Modifier.height(8.dp))
+            DetailItem(name = stringResource(R.string.gender), item = gender)
+            Spacer(modifier = Modifier.height(8.dp))
+            DetailItem(name = stringResource(R.string.origin), item = origin)
+            Spacer(modifier = Modifier.height(8.dp))
+            DetailItem(name = stringResource(R.string.location), item = location)
+            Spacer(modifier = Modifier.height(8.dp))
+            DetailItem(name = stringResource(R.string.first_episode), item = firstEpisode)
+            Spacer(modifier = Modifier.height(8.dp))
         }
     }
 

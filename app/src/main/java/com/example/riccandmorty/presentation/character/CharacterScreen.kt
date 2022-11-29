@@ -1,5 +1,6 @@
 package com.example.riccandmorty.presentation.character
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,13 +13,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.example.riccandmorty.presentation.character.components.CharacterItem
+import com.example.riccandmorty.presentation.destinations.DetailsScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import timber.log.Timber
 
 @Composable
 @Destination(start = true)
 fun CharacterScreen(
     viewModel: CharacterViewModel = hiltViewModel(),
+    navigator: DestinationsNavigator
 ) {
 
     val state = viewModel.characterListState.value
@@ -34,7 +38,12 @@ fun CharacterScreen(
             CharacterItem(
                 modifier = Modifier
                     .height(400.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth()
+                    .clickable {
+                               navigator.navigate(DetailsScreenDestination(
+                                   id = character?.id!!
+                               ))
+                    },
                 imageUrl = character!!.image,
                 text = character.name,
                 origin = character.origin.name,
