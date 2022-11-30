@@ -1,5 +1,6 @@
 package com.example.riccandmorty.presentation.details.components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -8,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -19,6 +21,7 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.riccandmorty.R
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun DetailsContent(
@@ -30,7 +33,6 @@ fun DetailsContent(
     gender: String,
     origin: String,
     location: String,
-    firstEpisode: String
     ) {
     Scaffold(
         topBar = {
@@ -43,7 +45,57 @@ fun DetailsContent(
                 title = { Text(text = stringResource(id = R.string.details))}
             )
         },
-        content = {}
+        content = {
+            Column(
+                modifier = Modifier.fillMaxSize()
+            ){
+                Image(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(0.6f)
+                        .clip(shape = RoundedCornerShape(bottomEnd = 30.dp, bottomStart = 30.dp)),
+                    painter = rememberImagePainter(
+                        data = imageUrl,
+                        builder = {
+                            placeholder(R.drawable.ic_placeholder)
+                            crossfade(true)
+                        }
+                    ),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = stringResource(R.string.image_background)
+                )
+                Spacer(modifier = Modifier.height(30.dp))
+                Text(
+                    modifier = Modifier
+                        .padding(start = 40.dp),
+                    text =title,
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.h6,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = Color.Black,
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(
+                    modifier= Modifier
+                        .padding(start = 40.dp, top = 8.dp)
+                        .clip(shape = RoundedCornerShape(8.dp))
+
+                ){
+                    Column{
+                        DetailItem(name = stringResource(id = R.string.status), item = status)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DetailItem(name = stringResource(id = R.string.species), item =species)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DetailItem(name = stringResource(id = R.string.gender), item = gender)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DetailItem(name = stringResource(id = R.string.origin), item = origin)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DetailItem(name = stringResource(id = R.string.location), item = location)
+                    }
+                }
+            }
+        }
     )
 
 

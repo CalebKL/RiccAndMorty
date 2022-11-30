@@ -48,8 +48,7 @@ fun CharacterScreen(
                                    species =character.species ,
                                    gender = character.gender,
                                    origin = character.origin.name,
-                                   location = character.location.name,
-                                   firstEpisode = character.episode.toString()
+                                   location = character.location.name
                                ))
                     },
                 imageUrl = character!!.image,

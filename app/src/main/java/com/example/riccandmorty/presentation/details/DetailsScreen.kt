@@ -26,7 +26,6 @@ fun DetailsScreen(
     gender: String,
     origin: String,
     location:String,
-    firstEpisode: String,
     navigator: DestinationsNavigator,
     viewModel: DetailsViewModel = hiltViewModel(),
 ) {
@@ -47,7 +46,6 @@ fun DetailsScreen(
             gender = gender,
             origin = origin,
             location = location,
-            firstEpisode =firstEpisode
         )
     }
 }

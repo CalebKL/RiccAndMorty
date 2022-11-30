@@ -24,14 +24,12 @@ fun DetailItem(
             text = "$name:",
             style = MaterialTheme.typography.subtitle1,
             maxLines = 1,
-            color = Color.White
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = item,
             style = MaterialTheme.typography.subtitle2,
             maxLines = 1,
-            color = Color.White
         )
     }
 }
