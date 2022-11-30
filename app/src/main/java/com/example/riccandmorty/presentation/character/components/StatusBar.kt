@@ -52,16 +52,16 @@ fun StatusBar(
                 }
         },
             style = MaterialTheme.typography.subtitle1,
-            color = Color.White.copy(alpha = ContentAlpha.medium)
+            color = Color.White
             )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = characters.species,
-            color = Color.White.copy(alpha = ContentAlpha.medium)
+            color = Color.White
         )
         Text(
             text = "("+characters.gender + ")",
-            color = Color.White.copy(alpha = ContentAlpha.medium)
+            color = Color.White
         )
     }
 }

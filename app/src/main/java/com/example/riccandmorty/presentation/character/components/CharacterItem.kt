@@ -78,7 +78,7 @@ fun CharacterItem(
                     text = "Origin",
                     style = MaterialTheme.typography.subtitle1,
                     maxLines = 1,
-                    color = Color.White
+                    color = Color.White.copy(alpha = ContentAlpha.medium)
                 )
                 Spacer(modifier = Modifier.height(3.dp))
                 Text(
@@ -86,13 +86,13 @@ fun CharacterItem(
                     fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.h6,
                     maxLines = 1,
-                    color = Color.White.copy(alpha = ContentAlpha.medium),
+                    color = Color.White
                 )
                 Text(
                     text = "Status",
                     style = MaterialTheme.typography.subtitle1,
                     maxLines = 1,
-                    color = Color.White
+                    color = Color.White.copy(alpha = ContentAlpha.medium)
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 StatusBar(characters = characters)
