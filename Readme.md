@@ -32,7 +32,6 @@ I added some screenshots in the `screenshots` folder, in the root directory of t
 <th>Mode</th>
 <th>Home screen</th>
 <th>Article Details Screen</th>
-<th>Read More</th>
 </tr>
 </thead>
 <tbody>
