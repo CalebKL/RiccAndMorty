@@ -10,6 +10,7 @@ import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -40,12 +41,12 @@ fun DetailsContent(
     origin: String,
     location: String,
 
-) {
+    ) {
     Scaffold(
         bottomBar = {
-                    BottomNavBar(
-                        navigator = navigator,
-                    )
+            BottomNavBar(
+                navigator = navigator,
+            )
         },
         content = {
             Column(
@@ -53,21 +54,34 @@ fun DetailsContent(
                     .fillMaxSize()
                     .background(Color.Black)
             ){
-                Image(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .fillMaxHeight(0.6f)
-                        .clip(shape = RoundedCornerShape(bottomEnd = 30.dp, bottomStart = 30.dp)),
-                    painter = rememberImagePainter(
-                        data = imageUrl,
-                        builder = {
-                            placeholder(R.drawable.ic_placeholder)
-                            crossfade(true)
-                        }
-                    ),
-                    contentScale = ContentScale.Crop,
-                    contentDescription = stringResource(R.string.image_background)
-                )
+                Box{
+                    Image(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight(0.6f)
+                            .clip(shape = RoundedCornerShape(bottomEnd = 30.dp,
+                                bottomStart = 30.dp)),
+                        painter = rememberImagePainter(
+                            data = imageUrl,
+                            builder = {
+                                placeholder(R.drawable.ic_placeholder)
+                                crossfade(true)
+                            }
+                        ),
+                        contentScale = ContentScale.Crop,
+                        contentDescription = stringResource(R.string.image_background)
+                    )
+                    IconButton(
+                        modifier = Modifier.size(60.dp),
+                        onClick = {
+                            navigator.popBackStack()
+                        }) {
+                        Icon(
+                            tint = Color.Black,
+                            imageVector = Icons.Filled.ArrowBack, contentDescription = stringResource(
+                                id = R.string.arrow_back))
+                    }
+                }
                 Spacer(modifier = Modifier.height(30.dp))
                 Text(
                     modifier = Modifier
@@ -114,4 +128,3 @@ fun BackButton(
         Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = stringResource(R.string.arrow_back))
     }
 }
-

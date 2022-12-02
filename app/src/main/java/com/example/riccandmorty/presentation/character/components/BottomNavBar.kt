@@ -1,10 +1,7 @@
 package com.example.riccandmorty.presentation.character.components
 
 import androidx.compose.foundation.background
-import androidx.compose.material.BottomAppBar
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocationOn
@@ -28,43 +25,45 @@ fun BottomNavBar(
     val selectedIndex = remember { mutableStateOf(0)}
     BottomNavigation(
         backgroundColor = Color.Black,
-        elevation = 10.dp
+        elevation = 10.dp,
+        contentColor = Color.Gray
     )
     {
        BottomNavigationItem(
+           selectedContentColor= Color.White,
+           unselectedContentColor = Color.White.copy(0.4f),
            selected = selectedIndex.value == 0,
            onClick = {
                navigator.navigate(CharacterScreenDestination)
            },
            icon = {
                Icon(
-                   tint = Color.White,
                    imageVector = Icons.Default.Home,
                    contentDescription = stringResource(R.string.home_page)
                )
            }
        )
         BottomNavigationItem(
+            selectedContentColor= Color.White,
+            unselectedContentColor = Color.White.copy(0.4f),
             selected = selectedIndex.value == 1,
             onClick = {
-                navigator.navigate(CharacterScreenDestination)
             },
             icon = {
                 Icon(
-                    tint = Color.White,
                     imageVector = Icons.Default.LocationOn,
                     contentDescription = stringResource(R.string.home_page)
                 )
             }
         )
         BottomNavigationItem(
+            selectedContentColor= Color.White,
+            unselectedContentColor = Color.White.copy(0.4f),
             selected = selectedIndex.value == 2,
             onClick = {
-                navigator.navigate(CharacterScreenDestination)
             },
             icon = {
                 Icon(
-                    tint = Color.White,
                     imageVector = Icons.Default.Settings,
                     contentDescription = stringResource(R.string.home_page)
                 )
