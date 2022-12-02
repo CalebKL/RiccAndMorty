@@ -2,12 +2,14 @@ package com.example.riccandmorty.presentation.details.components
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -20,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.riccandmorty.R
+import com.example.riccandmorty.data.remote.models.CharacterDto
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalCoilApi::class)
@@ -33,26 +37,19 @@ fun DetailsContent(
     gender: String,
     origin: String,
     location: String,
-    ) {
+
+) {
     Scaffold(
-        topBar = {
-            TopAppBar(
-                navigationIcon = {
-                    BackButton {
-                        onBackClicked()
-                    }
-                },
-                title = { Text(text = stringResource(id = R.string.details))}
-            )
-        },
         content = {
             Column(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black)
             ){
                 Image(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .fillMaxHeight(0.6f)
+                        .fillMaxHeight(0.65f)
                         .clip(shape = RoundedCornerShape(bottomEnd = 30.dp, bottomStart = 30.dp)),
                     painter = rememberImagePainter(
                         data = imageUrl,
@@ -73,14 +70,13 @@ fun DetailsContent(
                     style = MaterialTheme.typography.h6,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    color = Color.Black,
+                    color = Color.White,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Box(
                     modifier= Modifier
                         .padding(start = 40.dp, top = 8.dp)
-                        .clip(shape = RoundedCornerShape(8.dp))
-
+                        .clip(shape = RoundedCornerShape(8.dp)),
                 ){
                     Column{
                         DetailItem(name = stringResource(id = R.string.status), item = status)

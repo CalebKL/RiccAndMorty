@@ -38,7 +38,7 @@ fun CharacterItem(
             shape = RoundedCornerShape(20.dp)
         ){
             Image(
-                modifier = Modifier.fillMaxSize(),
+                modifier= Modifier.fillMaxSize(),
                 painter = rememberImagePainter(
                     data = imageUrl,
                     builder = {

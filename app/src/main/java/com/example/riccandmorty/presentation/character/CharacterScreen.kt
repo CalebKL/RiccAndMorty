@@ -37,7 +37,7 @@ fun CharacterScreen(
         items(characters) { character ->
             CharacterItem(
                 modifier = Modifier
-                    .height(400.dp)
+                    .height(380.dp)
                     .fillMaxWidth()
                     .clickable {
                                navigator.navigate(DetailsScreenDestination(
@@ -48,7 +48,7 @@ fun CharacterScreen(
                                    species =character.species ,
                                    gender = character.gender,
                                    origin = character.origin.name,
-                                   location = character.location.name
+                                   location = character.location.name,
                                ))
                     },
                 imageUrl = character!!.image,
