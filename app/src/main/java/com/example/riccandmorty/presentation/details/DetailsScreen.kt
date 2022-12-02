@@ -33,9 +33,8 @@ fun DetailsScreen(
     if (detailsState.value.isLoading) {
         CircularProgressIndicator()
     } else {
-        DetailsContent(onBackClicked = {
-            navigator.popBackStack()
-        },
+        DetailsContent(
+            navigator = navigator,
             imageUrl = image,
             title = title,
             status = status,

@@ -23,13 +23,15 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.example.riccandmorty.R
 import com.example.riccandmorty.data.remote.models.CharacterDto
+import com.example.riccandmorty.presentation.character.components.BottomNavBar
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun DetailsContent(
-    onBackClicked: ()->Unit,
+    navigator: DestinationsNavigator,
     imageUrl:String,
     title: String,
     status: String,
@@ -40,6 +42,11 @@ fun DetailsContent(
 
 ) {
     Scaffold(
+        bottomBar = {
+                    BottomNavBar(
+                        navigator = navigator,
+                    )
+        },
         content = {
             Column(
                 modifier = Modifier
@@ -49,7 +56,7 @@ fun DetailsContent(
                 Image(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .fillMaxHeight(0.65f)
+                        .fillMaxHeight(0.6f)
                         .clip(shape = RoundedCornerShape(bottomEnd = 30.dp, bottomStart = 30.dp)),
                     painter = rememberImagePainter(
                         data = imageUrl,

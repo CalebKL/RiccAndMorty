@@ -1,5 +1,6 @@
 package com.example.riccandmorty.presentation.character.components
 
+import androidx.compose.foundation.background
 import androidx.compose.material.BottomAppBar
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -11,6 +12,8 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,7 +26,10 @@ fun BottomNavBar(
     navigator: DestinationsNavigator
 ) {
     val selectedIndex = remember { mutableStateOf(0)}
-    BottomNavigation(elevation = 10.dp)
+    BottomNavigation(
+        backgroundColor = Color.Black,
+        elevation = 10.dp
+    )
     {
        BottomNavigationItem(
            selected = selectedIndex.value == 0,
@@ -32,6 +38,7 @@ fun BottomNavBar(
            },
            icon = {
                Icon(
+                   tint = Color.White,
                    imageVector = Icons.Default.Home,
                    contentDescription = stringResource(R.string.home_page)
                )
@@ -44,6 +51,7 @@ fun BottomNavBar(
             },
             icon = {
                 Icon(
+                    tint = Color.White,
                     imageVector = Icons.Default.LocationOn,
                     contentDescription = stringResource(R.string.home_page)
                 )
@@ -56,6 +64,7 @@ fun BottomNavBar(
             },
             icon = {
                 Icon(
+                    tint = Color.White,
                     imageVector = Icons.Default.Settings,
                     contentDescription = stringResource(R.string.home_page)
                 )
