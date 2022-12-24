@@ -103,6 +103,9 @@ dependencies {
     val hilt_android_compiler = "2.43.2"
     val hilt_android_testing = "2.42"
 
+    //6. Timber
+    val timber = "5.0.1"
+
     // B. Test Dependency versions
     val junit = "4.13.2"
     val junit_ext = "1.1.3"
@@ -209,4 +212,7 @@ dependencies {
     // RamaCosta Navigation
     implementation("io.github.raamcosta.compose-destinations:animations-core:$ramacosta_navigation")
     ksp("io.github.raamcosta.compose-destinations:ksp:$ramacosta_navigation")
+
+    // Timber for logging
+    implementation ("com.jakewharton.timber:timber:$timber")
 }

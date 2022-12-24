@@ -8,11 +8,11 @@ import com.example.riccandmorty.domain.models.responses.CharacterResponses
 
 val validCharacterResult = CharacterResponses(
     info = Info(
-        count = 1,
-        next = "Two",
-        pages = 5,
-        prev = "One",
-        lastUpdated = null
+        count = 4,
+        next = null,
+        pages = 3,
+        prev = null,
+        lastUpdated =  null
     ),
     results = listOf(CharacterDto(
         created = "12/12/12",
@@ -30,9 +30,15 @@ val validCharacterResult = CharacterResponses(
     ))
 )
 
-val pagingState = PagingState<Int, CharacterDto>(
-    listOf(),
-    null,
-    PagingConfig(10),
-    10
+val emptyResult = CharacterResponses(
+    info = Info(
+        count = 1,
+        next = null,
+        pages = 5,
+        prev = "One",
+        lastUpdated = null
+    ),
+    results = emptyList()
 )
+val pagingState = PagingState<Int, CharacterDto>(
+    listOf(), null, PagingConfig(10), 10)
