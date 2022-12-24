@@ -1,6 +1,7 @@
 package com.example.riccandmorty.resource
 
 import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.data.remote.models.Info
@@ -42,3 +43,19 @@ val emptyResult = CharacterResponses(
 )
 val pagingState = PagingState<Int, CharacterDto>(
     listOf(), null, PagingConfig(10), 10)
+
+val characterDto = CharacterDto(
+    created = "12/12/12",
+    episode = listOf("one", "two", "three"),
+    gender = "male",
+    id = 2,
+    image = "efiefef",
+    location = null,
+    name = "Ricky",
+    origin = null,
+    species = "Human",
+    status = "alive",
+    type = "random",
+    url = "enefefne"
+)
+
