@@ -21,27 +21,10 @@ The application doesn't require an API Key
 - [Retrofit](https://square.github.io/retrofit/) - To make network request.
 
 
-### Screenshots
-
-I added some screenshots in the `screenshots` folder, in the root directory of the project. Added some GIFs to also show end to end test on the app
-
-
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Home screen</th>
-<th>Article Details Screen</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Light</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/home.png" style="max-width: 100%;" width="250"></a></td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/article_details.png"><img src="https://github.com/paulnjoroge789016/NYTimesMostPopular/blob/master/screenshots/article_details.png" style="max-width: 100%;" width="250"></a></td>
-</tr>
-</tbody>
-</table>
+## 🌚 Screenshots
+|   Movies Screen    |  TV Shows Screen    |   Splash Screen   |  SearchScreen |
+|---	|---	|---    |---   
+| ![movie page](https://user-images.githubusercontent.com/95022986/198876688-2ff49872-45f2-4463-b623-138c07f7493b.jpg)|  ![TVShow](https://user-images.githubusercontent.com/95022986/198876753-a691133a-6488-48c6-b967-045da852009f.jpg)|   ![Splash](https://user-images.githubusercontent.com/95022986/198876845-3cf5842e-9afd-42f9-b9d6-86fee72fb58a.jpg)| ![Search](https://user-images.githubusercontent.com/95022986/198876911-634896bd-5b55-430f-b15b-ac22cfe70a0c.jpg)
 
 ## Architecture.
 
