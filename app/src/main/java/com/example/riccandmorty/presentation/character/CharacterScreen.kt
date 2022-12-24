@@ -56,13 +56,13 @@ fun CharacterScreen(
                                    status = character.status,
                                    species =character.species ,
                                    gender = character.gender,
-                                   origin = character.origin.name,
-                                   location = character.location.name,
+                                   origin = character.origin!!.name,
+                                   location = character.location!!.name,
                                ))
                            },
                        imageUrl = character!!.image,
                        text = character.name,
-                       origin = character.origin.name,
+                       origin = character.origin!!.name,
                        characters = character
                    )
                }
