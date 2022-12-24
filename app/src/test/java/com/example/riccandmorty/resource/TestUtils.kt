@@ -5,6 +5,9 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.riccandmorty.data.remote.models.CharacterDto
 import com.example.riccandmorty.data.remote.models.Info
+import com.example.riccandmorty.data.remote.models.Location
+import com.example.riccandmorty.data.remote.models.Origin
+import com.example.riccandmorty.domain.models.CharacterRemoteKeys
 import com.example.riccandmorty.domain.models.responses.CharacterResponses
 
 val validCharacterResult = CharacterResponses(
@@ -44,18 +47,36 @@ val emptyResult = CharacterResponses(
 val pagingState = PagingState<Int, CharacterDto>(
     listOf(), null, PagingConfig(10), 10)
 
-val characterDto = CharacterDto(
+val fakeCharacterDto = CharacterDto(
     created = "12/12/12",
     episode = listOf("one", "two", "three"),
     gender = "male",
     id = 2,
     image = "efiefef",
-    location = null,
+    location = Location(
+        created = "new",
+        dimension = "another",
+        id = 1,
+        name = "random",
+        residents = emptyList(),
+        type = "random",
+        url = "efef"
+    ),
     name = "Ricky",
-    origin = null,
+    origin = Origin(
+        name = "Pluto",
+        url = "dedede"
+    ),
     species = "Human",
     status = "alive",
     type = "random",
     url = "enefefne"
+)
+
+val remoteKeys = CharacterRemoteKeys(
+    id = 1,
+    prevPage = 3,
+    nextPage = 4,
+    lastUpdated = null
 )
 
