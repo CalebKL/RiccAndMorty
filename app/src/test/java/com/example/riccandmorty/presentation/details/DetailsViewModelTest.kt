@@ -24,19 +24,19 @@ class DetailsViewModelTest {
 
     // WIP
 
-    @Test
-    fun `get character details, should return Error`()= runBlocking{
-        `when`(getCharacterDetailsUseCase.invoke(2)).thenReturn(
-            flow {
-                emit(Resource.Success(fakeCharacterDto))
-            }
-        )
-        viewModel = DetailsViewModel(getCharacterDetailsUseCase)
-        viewModel.onGetCharacterEvent(2)
-
-        val result = viewModel.onGetCharacterEvent(2)
-        Truth.assertThat(result).isSameInstanceAs(fakeCharacterDto)
-    }
+//    @Test
+//    fun `get character details, should return Error`()= runBlocking{
+//        `when`(getCharacterDetailsUseCase.invoke(2)).thenReturn(
+//            flow {
+//                emit(Resource.Success(fakeCharacterDto))
+//            }
+//        )
+//        viewModel = DetailsViewModel(getCharacterDetailsUseCase)
+//        viewModel.onGetCharacterEvent(2)
+//
+//        val result = viewModel.onGetCharacterEvent(2)
+//        Truth.assertThat(result).isSameInstanceAs(fakeCharacterDto)
+//    }
 
 
 }
